@@ -1,0 +1,30 @@
+.mt-grid { align-items: start; }
+.mt-main { gap: 18px; padding: 22px; }
+.tempo { display: flex; align-items: center; justify-content: center; gap: 14px; }
+.tempo .btn.icon.big { width: 52px; height: 52px; border-radius: 50%; font-size: 26px; padding: 0; }
+.bpm-box { display: grid; justify-items: center; }
+.bpm { width: 3.6ch; font-size: 76px; font-weight: 800; line-height: 1; letter-spacing: -.04em; text-align: center; background: transparent; border: 0; color: var(--text); -moz-appearance: textfield; appearance: textfield; padding: 0; transition: transform 90ms var(--ease), color 90ms; }
+.bpm::-webkit-outer-spin-button, .bpm::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.bpm:focus { outline: none; color: var(--accent); }
+.bpm.pulse { transform: scale(1.04); }
+.bpm-lbl { color: var(--text-3); font-size: 13px; }
+.bpm-lbl b { color: var(--text-2); font-weight: 600; }
+.beats { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; min-height: 52px; }
+.dot { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--line-strong); background: var(--surface-2); display: grid; place-items: center; color: var(--text-3); font-weight: 700; font-size: 13px; transition: background 80ms, transform 80ms var(--ease), box-shadow 120ms; }
+.dot.accent { border-color: var(--accent); color: var(--accent); }
+.dot.mute { border-style: dashed; opacity: .5; }
+.dot.on { background: var(--text-2); color: var(--bg); transform: scale(1.12); }
+.dot.accent.on { background: var(--accent); color: var(--accent-ink); box-shadow: 0 0 0 6px var(--accent-soft); }
+.dot.mute.on { background: transparent; color: var(--text-3); }
+.dot.sub { transform: scale(1.04); }
+.center-row { justify-content: center; }
+.center-row .btn.big { min-width: 150px; }
+.ts { gap: 6px; flex-wrap: nowrap; }
+.ts .select { width: 76px; }
+.field.inline { display: flex; align-items: center; gap: 10px; }
+.stack.tight { gap: 6px; }
+.seg button { min-width: 48px; }
+.quick .btn { min-width: 52px; }
+.keys kbd { margin: 0 1px; }
+.stack.tight .seg { justify-self: start; }
+#sub button { font-size: 16px; }

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' data: blob:; connect-src 'self' data: blob:; worker-src 'self' blob:; manifest-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Metronome — Free Online Metronome with Tap Tempo | S3eidat Tools</title>
+<meta name="description" content="An accurate online metronome: 20–300 BPM, tap tempo, time signatures, accents, subdivisions (eighths, triplets, sixteenths) and a visual beat. Sample-accurate WebAudio timing. Free, no install.">
+<meta property="og:title" content="Metronome — free, accurate, with tap tempo">
+<meta property="og:description" content="Sample-accurate metronome with tap tempo, accents and subdivisions. Runs in your browser.">
+<meta property="og:image" content="screenshot.png">
+<link rel="icon" href="kit/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="kit/kit.css">
+<link rel="stylesheet" href="app.css">
+<script src="kit/kit.js"></script>
+</head>
+<body data-tool="metronome">
+<main class="s3-main">
+  <section class="s3-hero">
+    <h1>Metronome</h1>
+    <p>Sample-accurate clicks scheduled with WebAudio, so the beat doesn't drift. Tap a tempo, pick a time signature, accent or mute any beat.</p>
+  </section>
+
+  <div class="grid-2 mt-grid">
+    <section class="card stack mt-main">
+      <div class="tempo">
+        <button class="btn icon big" id="minus" aria-label="Slower">−</button>
+        <div class="bpm-box">
+          <input class="bpm mono" id="bpm" type="number" min="20" max="300" inputmode="numeric" aria-label="Beats per minute" value="120">
+          <span class="bpm-lbl">BPM · <b id="tname">Allegro</b></span>
+        </div>
+        <button class="btn icon big" id="plus" aria-label="Faster">+</button>
+      </div>
+      <input type="range" id="slider" min="20" max="300" value="120" aria-label="Tempo slider">
+      <div class="beats" id="beats" role="group" aria-label="Beats in the bar: click to accent, normal or mute"></div>
+      <div class="row center-row">
+        <button class="btn primary big" id="toggle"><svg class="i"><use href="#i-play"/></svg><span>Start</span></button>
+        <button class="btn big" id="tap">Tap tempo</button>
+      </div>
+      <div class="row between faint"><span id="pos">Bar — · Beat —</span><span id="elapsed">0:00</span></div>
+    </section>
+
+    <section class="card stack">
+      <h2>Rhythm</h2>
+      <div class="row">
+        <label class="field inline">Time signature
+          <span class="row ts">
+            <select class="select" id="beatsPer" aria-label="Beats per bar"></select>
+            <span>/</span>
+            <select class="select" id="unit" aria-label="Beat unit"><option>2</option><option selected>4</option><option>8</option><option>16</option></select>
+          </span>
+        </label>
+      </div>
+      <div class="stack tight">
+        <span class="faint">Subdivision</span>
+        <div class="seg" id="sub" role="group" aria-label="Subdivision">
+          <button aria-pressed="true" data-v="1" title="Quarter notes">♩</button>
+          <button aria-pressed="false" data-v="2" title="Eighth notes">♪♪</button>
+          <button aria-pressed="false" data-v="3" title="Triplets">3</button>
+          <button aria-pressed="false" data-v="4" title="Sixteenth notes">♬♬</button>
+        </div>
+      </div>
+      <div class="stack tight">
+        <span class="faint">Sound</span>
+        <div class="seg" id="sound" role="group" aria-label="Sound">
+          <button aria-pressed="true" data-v="click">Click</button>
+          <button aria-pressed="false" data-v="wood">Wood</button>
+          <button aria-pressed="false" data-v="beep">Beep</button>
+        </div>
+      </div>
+      <label class="check"><input type="checkbox" id="accent1" checked> Accent beat 1</label>
+      <label class="field">Volume <input type="range" id="vol" min="0" max="100" value="80"></label>
+      <div class="stack tight">
+        <span class="faint">Quick tempos</span>
+        <div class="row quick" id="quick"></div>
+      </div>
+      <p class="faint keys"><kbd>Space</kbd> start/stop · <kbd>↑</kbd><kbd>↓</kbd> ±1 BPM (<kbd>Shift</kbd> ±5) · <kbd>T</kbd> tap · click a beat dot to accent / normal / mute it</p>
+    </section>
+  </div>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
